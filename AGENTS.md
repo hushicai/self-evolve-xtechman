@@ -65,13 +65,13 @@ utils/
 ### 页面约束
 - 无 TabBar（首页即日历）
 
-### 事件类型
+### 事件类型（运势主题）
 ```javascript
 types: [
-  { value: 'reminder', label: '提醒', color: '#5677fc' },
-  { value: 'meeting', label: '会议', color: '#ff9800' },
-  { value: 'birthday', label: '生日', color: '#4caf50' },
-  { value: 'deadline', label: '截止', color: '#f44336' }
+  { value: 'fortune', label: '运势', color: '#9333ea', icon: '✦' },
+  { value: 'zodiac', label: '星座', color: '#0891b2', icon: '☽' },
+  { value: 'lucky', label: '幸运', color: '#ea580c', icon: '★' },
+  { value: 'anniversary', label: '纪念', color: '#be185d', icon: '♥' }
 ]
 ```
 

@@ -1,5 +1,5 @@
 <!-- pages/event-edit/event-edit.wxml -->
-<!-- 事件编辑页面 - cc-ui 简洁风格 -->
+<!-- 运势日历编辑页面 - 星座运势主题 -->
 
 <view class="edit-page">
   <!-- 日期 -->
@@ -22,33 +22,33 @@
   <view class="input-row">
     <input 
       class="title-input" 
-      placeholder="输入事件内容"
+      placeholder="记录今天的运势..."
       value="{{title}}"
       bindinput="onTitleInput"
     />
   </view>
 
-  <!-- 类型选择 -->
-  <view class="type-row">
-    <text class="type-label">类型</text>
-    <view class="type-list">
+  <!-- 类型选择 - 2x2 网格布局 -->
+  <view class="type-section">
+    <text class="type-title">选择类型</text>
+    <view class="type-grid">
       <view 
         wx:for="{{types}}" 
         wx:key="value"
-        class="type-item {{type === item.value ? 'active' : ''}}"
-        style="border-color: {{item.color}}"
+        class="type-card {{type === item.value ? 'active' : ''}}"
+        style="--card-color: {{item.color}}"
         data-value="{{item.value}}"
         bindtap="onTypeSelect"
       >
-        <view class="type-dot" style="background-color: {{item.color}}"></view>
-        <text>{{item.label}}</text>
+        <text class="type-icon">{{item.icon}}</text>
+        <text class="type-label">{{item.label}}</text>
       </view>
     </view>
   </view>
 
   <!-- 按钮 -->
   <view class="btn-row">
-    <button class="save-btn" bindtap="onSave">保存</button>
+    <button class="save-btn" style="background-color: {{color}}" bindtap="onSave">保存</button>
     <button wx:if="{{eventId}}" class="delete-btn" bindtap="onDelete">删除</button>
   </view>
 </view>
