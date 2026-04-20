@@ -76,6 +76,7 @@
         <text class="lucky-icon">🍎</text>
         <text class="lucky-label">幸运食物</text>
         <text class="lucky-value">{{luckyInfo.food}}</text>
+      </view>
     </view>
   </view>
 </view>
