@@ -96,9 +96,7 @@ Page({
     fortuneScore: 0,
     fortuneText: '',
     zodiac: null,
-    luckyInfo: null,
-    todayEvents: [],
-    showEventList: false
+    luckyInfo: null
   },
 
   onLoad(options) {
@@ -121,10 +119,6 @@ Page({
     const luckyInfo = generateLuckyInfo(date)
     const zodiacFortune = generateZodiacFortune(zodiac, date)
 
-    // 获取当天的事件
-    const events = wx.getStorageSync('calendar_events') || []
-    const todayEvents = events.filter(e => e.date === date)
-
     this.setData({
       date,
       formattedDate,
@@ -132,9 +126,7 @@ Page({
       fortuneScore,
       fortuneText,
       zodiac: zodiacFortune,
-      luckyInfo,
-      todayEvents,
-      showEventList: todayEvents.length > 0
+      luckyInfo
     })
 
     // 更新导航栏标题
@@ -148,30 +140,5 @@ Page({
     const month = String(date.getMonth() + 1).padStart(2, '0')
     const day = String(date.getDate()).padStart(2, '0')
     return `${year}-${month}-${day}`
-  },
-
-  onAddEvent() {
-    wx.navigateTo({
-      url: `/pages/event-edit/event-edit?date=${this.data.date}`
-    })
-  },
-
-  onEditEvent(e) {
-    const { id } = e.currentTarget.dataset
-    wx.navigateTo({
-      url: `/pages/event-edit/event-edit?id=${id}&date=${this.data.date}`
-    })
-  },
-
-  onDeleteEvent(e) {
-    const { id } = e.currentTarget.dataset
-    const events = wx.getStorageSync('calendar_events') || []
-    const filtered = events.filter(event => event.id !== id)
-    wx.setStorageSync('calendar_events', filtered)
-    
-    const todayEvents = filtered.filter(event => event.date === this.data.date)
-    this.setData({ todayEvents })
-    
-    wx.showToast({ title: '已删除', icon: 'success' })
   }
 })

@@ -76,40 +76,6 @@
         <text class="lucky-icon">🍎</text>
         <text class="lucky-label">幸运食物</text>
         <text class="lucky-value">{{luckyInfo.food}}</text>
-      </view>
     </view>
-  </view>
-
-  <!-- 当天记录列表 -->
-  <view class="events-card">
-    <view class="events-header">
-      <text class="card-title">今日记录</text>
-      <text class="event-count">{{todayEvents.length}}条</text>
-    </view>
-    
-    <view wx:if="{{todayEvents.length > 0}}" class="events-list">
-      <view 
-        class="event-item" 
-        wx:for="{{todayEvents}}" 
-        wx:key="id"
-      >
-        <view class="event-dot" style="background-color: {{item.color}}"></view>
-        <view class="event-content">
-          <text class="event-title">{{item.title}}</text>
-          <text class="event-type">{{item.time}} · {{item.type}}</text>
-        </view>
-        <view class="event-actions">
-          <text class="action-btn" data-id="{{item.id}}" bindtap="onEditEvent">编辑</text>
-          <text class="action-btn delete" data-id="{{item.id}}" bindtap="onDeleteEvent">删除</text>
-        </view>
-      </view>
-    </view>
-    
-    <view wx:else class="empty-events">
-      <text class="empty-text">还没有记录哦~</text>
-      <text class="empty-hint">记录今天的运势吧</text>
-    </view>
-
-    <button class="add-btn" bindtap="onAddEvent">+ 添加记录</button>
   </view>
 </view>
