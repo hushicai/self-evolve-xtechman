@@ -56,10 +56,14 @@ utils/
 - Page/Component 使用微信原生 API
 - 数据存储使用 `wx.getStorageSync` / `wx.setStorageSync`
 
-### 样式
-- 主色: `#5677fc`（cc-ui 简洁风格）
+### UI 设计规范
+
+**所有 UI 设计必须使用 cc-design 技能**。
+
+设计风格：Professional + Excitement（专业生产力工具 + 活力感）
+
+### 页面约束
 - 无 TabBar（首页即日历）
-- 简洁、扁平化设计
 
 ### 事件类型
 ```javascript
