@@ -1,5 +1,7 @@
 // utils/dateUtil.js - 日期工具函数
 
+const lunarUtil = require('./lunarUtil')
+
 /**
  * 获取某月的天数
  * @param {number} year 年份
@@ -39,11 +41,13 @@ function generateCalendarGrid(year, month) {
   // 当月日期
   for (let day = 1; day <= daysInMonth; day++) {
     const dateStr = formatDateStr(year, month, day)
+    const lunarDay = lunarUtil.getLunarDayShort(year, month, day)
     grid.push({
       day: day,
       date: dateStr,
       isCurrentMonth: true,
-      isToday: isToday(year, month, day)
+      isToday: isToday(year, month, day),
+      lunarDay: lunarDay
     })
   }
 

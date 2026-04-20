@@ -34,6 +34,7 @@
       bindtap="onDateTap"
     >
       <text class="day-num">{{item.day}}</text>
+      <text wx:if="{{item.lunarDay}}" class="lunar-day">{{item.lunarDay}}</text>
       <view wx:if="{{item.hasEvent}}" class="event-dot" style="background-color: {{item.eventColor}}"></view>
     </view>
   </view>

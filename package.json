@@ -19,5 +19,8 @@
     "snapshotSerializers": [
       "miniprogram-simulate/jest-snapshot-plugin"
     ]
+  },
+  "dependencies": {
+    "lunar-javascript": "^1.7.7"
   }
 }

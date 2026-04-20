@@ -72,7 +72,7 @@
 
 .day-cell {
   width: calc(100% / 7);
-  height: 80rpx;
+  height: 100rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,13 +85,27 @@
   color: #333;
 }
 
+.lunar-day {
+  font-size: 16rpx;
+  color: #999;
+  margin-top: 2rpx;
+}
+
 .other-month .day-num {
   color: #ccc;
+}
+
+.other-month .lunar-day {
+  color: #ddd;
 }
 
 .today .day-num {
   color: #5677fc;
   font-weight: 600;
+}
+
+.today .lunar-day {
+  color: #5677fc;
 }
 
 .selected {
@@ -101,6 +115,10 @@
 
 .selected .day-num {
   color: #ffffff;
+}
+
+.selected .lunar-day {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .event-dot {
