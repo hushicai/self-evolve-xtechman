@@ -1,0 +1,115 @@
+<!-- pages/fortune-detail/fortune-detail.wxml -->
+<!-- 运势详情页 - 星座运势主题，卡片式布局 -->
+
+<view class="detail-page">
+  <!-- 顶部日期 -->
+  <view class="header">
+    <text class="date">{{formattedDate}}</text>
+    <text class="weekday">{{weekDay}}</text>
+  </view>
+
+  <!-- 运势概览卡片 -->
+  <view class="fortune-card main-card">
+    <view class="fortune-header">
+      <text class="fortune-title">今日运势</text>
+      <view class="fortune-score">
+        <text class="score-value">{{fortuneScore}}</text>
+        <text class="score-max">/100</text>
+      </view>
+    </view>
+    <view class="fortune-bar">
+      <view class="fortune-bar-fill" style="width: {{fortuneScore}}%; background-color: {{zodiac.color}}"></view>
+    </view>
+    <text class="fortune-desc">{{fortuneText}}</text>
+  </view>
+
+  <!-- 星座卡片 -->
+  <view class="zodiac-card" style="border-color: {{zodiac.color}}">
+    <view class="zodiac-header">
+      <text class="zodiac-icon" style="color: {{zodiac.color}}">{{zodiac.icon}}</text>
+      <view class="zodiac-info">
+        <text class="zodiac-name">{{zodiac.name}}</text>
+        <text class="zodiac-element">{{zodiac.element}}象星座</text>
+      </view>
+    </view>
+    
+    <!-- 各方面运势 -->
+    <view class="aspects">
+      <view class="aspect-item" wx:for="{{zodiac.overall}}" wx:key="name">
+        <text class="aspect-name">{{item.name}}</text>
+        <view class="aspect-bar">
+          <view class="aspect-fill" style="width: {{item.score}}%; background-color: {{zodiac.color}}"></view>
+        </view>
+        <text class="aspect-score">{{item.score}}</text>
+      </view>
+    </view>
+
+    <!-- 温馨提示 -->
+    <view class="zodiac-tips">
+      <text class="tip">{{zodiac.loveTip}}</text>
+      <text class="tip">{{zodiac.workTip}}</text>
+    </view>
+  </view>
+
+  <!-- 幸运信息卡片 -->
+  <view class="lucky-card">
+    <text class="card-title">幸运信息</text>
+    <view class="lucky-grid">
+      <view class="lucky-item">
+        <text class="lucky-icon">🔢</text>
+        <text class="lucky-label">幸运数字</text>
+        <view class="lucky-values">
+          <text wx:for="{{luckyInfo.numbers}}" wx:key="*this" class="lucky-number">{{item}}</text>
+        </view>
+      </view>
+      <view class="lucky-item">
+        <text class="lucky-icon">🎨</text>
+        <text class="lucky-label">幸运颜色</text>
+        <text class="lucky-value">{{luckyInfo.color}}</text>
+      </view>
+      <view class="lucky-item">
+        <text class="lucky-icon">🧭</text>
+        <text class="lucky-label">幸运方位</text>
+        <text class="lucky-value">{{luckyInfo.direction}}</text>
+      </view>
+      <view class="lucky-item">
+        <text class="lucky-icon">🍎</text>
+        <text class="lucky-label">幸运食物</text>
+        <text class="lucky-value">{{luckyInfo.food}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 当天记录列表 -->
+  <view class="events-card">
+    <view class="events-header">
+      <text class="card-title">今日记录</text>
+      <text class="event-count">{{todayEvents.length}}条</text>
+    </view>
+    
+    <view wx:if="{{todayEvents.length > 0}}" class="events-list">
+      <view 
+        class="event-item" 
+        wx:for="{{todayEvents}}" 
+        wx:key="id"
+      >
+        <view class="event-dot" style="background-color: {{item.color}}"></view>
+        <view class="event-content">
+          <text class="event-title">{{item.title}}</text>
+          <text class="event-type">{{item.time}} · {{item.type}}</text>
+        </view>
+        <view class="event-actions">
+          <text class="action-btn" data-id="{{item.id}}" bindtap="onEditEvent">编辑</text>
+          <text class="action-btn delete" data-id="{{item.id}}" bindtap="onDeleteEvent">删除</text>
+        </view>
+      </view>
+    </view>
+    
+    <view wx:else class="empty-events">
+      <text class="empty-text">还没有记录哦~</text>
+      <text class="empty-hint">记录今天的运势吧</text>
+    </view>
+
+    <button class="add-btn" bindtap="onAddEvent">+ 添加记录</button>
+  </view>
+</view>

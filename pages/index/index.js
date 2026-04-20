@@ -47,16 +47,9 @@ Page({
 
   onDateSelect(e) {
     const { date } = e.detail
-    this.setData({
-      selectedDate: date,
-      formattedSelectedDate: this.formatDateWithWeek(date)
-    })
-    
-    // 显示该日期的事件列表
-    const dayEvents = this.data.events.filter(event => event.date === date)
-    this.setData({
-      showEventList: true,
-      selectedDateEvents: dayEvents
+    // 跳转到运势详情页
+    wx.navigateTo({
+      url: `/pages/fortune-detail/fortune-detail?date=${date}`
     })
   },
 

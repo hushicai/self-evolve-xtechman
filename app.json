@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/event-edit/event-edit"
+    "pages/event-edit/event-edit",
+    "pages/fortune-detail/fortune-detail"
   ],
   "window": {
     "navigationBarTitleText": "日历",
