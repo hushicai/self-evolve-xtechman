@@ -1,0 +1,23 @@
+{
+  "name": "xtechman-miniapp",
+  "version": "1.0.0",
+  "description": "XTechMan 实用工具小程序",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "miniprogram-simulate": "^1.2.5"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "snapshotSerializers": [
+      "miniprogram-simulate/jest-snapshot-plugin"
+    ]
+  }
+}

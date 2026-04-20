@@ -1,0 +1,50 @@
+/* app.wxss - 全局样式 */
+/* cc-ui 简洁风格 */
+
+page {
+  background-color: #f8f8f8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 主色调 */
+.primary {
+  color: #5677fc;
+}
+
+/* 文本颜色 */
+.text-main {
+  color: #333;
+}
+
+.text-secondary {
+  color: #666;
+}
+
+.text-light {
+  color: #999;
+}
+
+/* 背景颜色 */
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-page {
+  background-color: #f8f8f8;
+}
+
+/* 圆角 */
+.radius-sm {
+  border-radius: 8rpx;
+}
+
+.radius-md {
+  border-radius: 16rpx;
+}
+
+.radius-lg {
+  border-radius: 24rpx;
+}

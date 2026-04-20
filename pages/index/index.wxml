@@ -1,0 +1,53 @@
+<!-- pages/index/index.wxml - 首页日历视图 -->
+<view class="page-container">
+  <!-- 日历组件 -->
+  <calendar-component
+    year="{{currentYear}}"
+    month="{{currentMonth}}"
+    selected-date="{{selectedDate}}"
+    events="{{events}}"
+    bind:dateselect="onDateSelect"
+    bind:monthchange="onMonthChange"
+  />
+
+  <!-- 事件列表（底部弹出） -->
+  <view class="event-panel {{showEventList ? 'show' : ''}}" 
+        bindtouchstart="onPanelTouchStart" 
+        bindtouchmove="onPanelTouchMove"
+        bindtouchend="onPanelTouchEnd">
+    <!-- 拖拽指示条 -->
+    <view class="panel-drag-handle"></view>
+    
+    <view class="event-panel-header">
+      <text class="event-date">{{formattedSelectedDate}}</text>
+      <view class="event-actions">
+        <text class="add-btn" bindtap="onAddEvent">+ 添加</text>
+        <text class="close-btn" bindtap="onCloseEventList">完成</text>
+      </view>
+    </view>
+
+    <view class="event-list">
+      <block wx:for="{{selectedDateEvents}}" wx:key="id">
+        <view class="event-item-wrapper">
+          <view class="event-item {{item.swiped ? 'swiped' : ''}}" 
+                data-id="{{item.id}}" 
+                bindtap="onEditEvent"
+                bindtouchstart="onItemTouchStart"
+                bindtouchmove="onItemTouchMove"
+                bindtouchend="onItemTouchEnd">
+            <view class="event-color" style="background-color: {{item.color}}"></view>
+            <view class="event-content">
+              <text class="event-title">{{item.title}}</text>
+              <text class="event-time">{{item.time || '09:00'}}</text>
+            </view>
+          </view>
+          <view class="delete-btn" data-id="{{item.id}}" catchtap="onDeleteEvent">删除</view>
+        </view>
+      </block>
+
+      <view wx:if="{{selectedDateEvents.length === 0}}" class="no-event">
+        <text>暂无事件</text>
+      </view>
+    </view>
+  </view>
+</view>

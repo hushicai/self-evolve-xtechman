@@ -1,0 +1,54 @@
+<!-- pages/event-edit/event-edit.wxml -->
+<!-- 事件编辑页面 - cc-ui 简洁风格 -->
+
+<view class="edit-page">
+  <!-- 日期 -->
+  <view class="date-row">
+    <text class="date-label">日期</text>
+    <text class="date-value">{{date}}</text>
+  </view>
+
+  <!-- 时间选择 -->
+  <view class="time-row">
+    <text class="time-label">时间</text>
+    <picker mode="time" value="{{time}}" bindchange="onTimeChange">
+      <view class="time-picker">
+        <text class="time-value">{{time || '选择时间'}}</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 标题输入 -->
+  <view class="input-row">
+    <input 
+      class="title-input" 
+      placeholder="输入事件内容"
+      value="{{title}}"
+      bindinput="onTitleInput"
+    />
+  </view>
+
+  <!-- 类型选择 -->
+  <view class="type-row">
+    <text class="type-label">类型</text>
+    <view class="type-list">
+      <view 
+        wx:for="{{types}}" 
+        wx:key="value"
+        class="type-item {{type === item.value ? 'active' : ''}}"
+        style="border-color: {{item.color}}"
+        data-value="{{item.value}}"
+        bindtap="onTypeSelect"
+      >
+        <view class="type-dot" style="background-color: {{item.color}}"></view>
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 按钮 -->
+  <view class="btn-row">
+    <button class="save-btn" bindtap="onSave">保存</button>
+    <button wx:if="{{eventId}}" class="delete-btn" bindtap="onDelete">删除</button>
+  </view>
+</view>

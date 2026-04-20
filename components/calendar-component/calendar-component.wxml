@@ -1,0 +1,40 @@
+<!-- components/calendar-component/calendar-component.wxml -->
+<!-- 日历组件 - cc-ui 简洁风格 -->
+
+<view class="calendar">
+  <!-- 月份导航 -->
+  <view class="calendar-nav">
+    <view class="nav-arrow" bindtap="onPrevMonth">‹</view>
+    
+    <picker mode="multiSelector" range="{{pickerRange}}" value="{{pickerValue}}" bindchange="onPickerChange">
+      <view class="month-title">
+        <text class="year">{{year}}</text>
+        <text class="month">{{monthNames[month - 1]}}</text>
+      </view>
+    </picker>
+    
+    <view class="nav-arrow" bindtap="onNextMonth">›</view>
+  </view>
+
+  <!-- 今天按钮 -->
+  <view class="today-btn" bindtap="onToday">今天</view>
+
+  <!-- 星期标题 -->
+  <view class="week-header">
+    <text wx:for="{{weekDays}}" wx:key="index" class="week-day">{{item}}</text>
+  </view>
+
+  <!-- 日历网格 -->
+  <view class="calendar-grid" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd">
+    <view 
+      wx:for="{{calendarGrid}}" 
+      wx:key="index"
+      class="day-cell {{item.isCurrentMonth ? '' : 'other-month'}} {{item.isToday ? 'today' : ''}} {{selectedDate === item.date ? 'selected' : ''}}"
+      data-date="{{item.date}}"
+      bindtap="onDateTap"
+    >
+      <text class="day-num">{{item.day}}</text>
+      <view wx:if="{{item.hasEvent}}" class="event-dot" style="background-color: {{item.eventColor}}"></view>
+    </view>
+  </view>
+</view>

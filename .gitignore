@@ -1,0 +1,47 @@
+# 微信开发者工具配置
+project.private.config.json
+project.config.json
+
+# 依赖目录
+node_modules/
+
+# macOS系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 编辑器/IDE配置
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 日志文件
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量文件
+.env
+.env.local
+.env.*.local
+
+# 临时文件
+*.tmp
+*.temp
+.cache/
+
+# 打包文件
+*.zip
+*.rar
+dist/
+build/
+
+# 敏感信息
+*.pem
+*.key
+*secret*
+*password*
+*token*

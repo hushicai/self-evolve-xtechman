@@ -1,0 +1,112 @@
+/* components/calendar-component/calendar-component.wxss */
+/* 日历组件 - cc-ui 简洁风格 */
+
+.calendar {
+  background-color: #ffffff;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  margin: 24rpx;
+}
+
+/* 月份导航 */
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16rpx 0;
+}
+
+.nav-arrow {
+  font-size: 40rpx;
+  color: #5677fc;
+  padding: 16rpx 24rpx;
+}
+
+.month-title {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.year {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.month {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #5677fc;
+}
+
+/* 今天按钮 */
+.today-btn {
+  text-align: center;
+  padding: 12rpx;
+  margin-bottom: 16rpx;
+  color: #5677fc;
+  font-size: 26rpx;
+}
+
+/* 星期标题 */
+.week-header {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.week-day {
+  flex: 1;
+  text-align: center;
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 日历网格 */
+.calendar-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8rpx 0;
+}
+
+.day-cell {
+  width: calc(100% / 7);
+  height: 80rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.day-num {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.other-month .day-num {
+  color: #ccc;
+}
+
+.today .day-num {
+  color: #5677fc;
+  font-weight: 600;
+}
+
+.selected {
+  background-color: #5677fc;
+  border-radius: 50%;
+}
+
+.selected .day-num {
+  color: #ffffff;
+}
+
+.event-dot {
+  width: 6rpx;
+  height: 6rpx;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 8rpx;
+}
