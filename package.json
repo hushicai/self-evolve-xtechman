@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "XTechMan 实用工具小程序",
   "scripts": {
-    "test": "jest",
+    "test": "jest && eslint pages/**/*.wxml",
     "test:watch": "jest --watch"
   },
   "devDependencies": {

@@ -16,7 +16,7 @@
         bindtouchmove="onPanelTouchMove"
         bindtouchend="onPanelTouchEnd">
     <!-- 拖拽指示条 -->
-    <view class="panel-drag-handle"></view>
+    <view class="panel-drag-handle"/>
     
     <view class="event-panel-header">
       <text class="event-date">{{formattedSelectedDate}}</text>
@@ -35,7 +35,7 @@
                 bindtouchstart="onItemTouchStart"
                 bindtouchmove="onItemTouchMove"
                 bindtouchend="onItemTouchEnd">
-            <view class="event-color" style="background-color: {{item.color}}"></view>
+            <view class="event-color" style="background-color: {{item.color}}"/>
             <view class="event-content">
               <text class="event-title">{{item.title}}</text>
               <text class="event-time">{{item.time || '09:00'}}</text>

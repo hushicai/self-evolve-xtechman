@@ -18,7 +18,7 @@
       </view>
     </view>
     <view class="fortune-bar">
-      <view class="fortune-bar-fill" style="width: {{fortuneScore}}%; background-color: {{zodiac.color}}"></view>
+      <view class="fortune-bar-fill" style="width: {{fortuneScore}}%; background-color: {{zodiac.color}}"/>
     </view>
     <text class="fortune-desc">{{fortuneText}}</text>
   </view>
@@ -38,7 +38,7 @@
       <view class="aspect-item" wx:for="{{zodiac.overall}}" wx:key="name">
         <text class="aspect-name">{{item.name}}</text>
         <view class="aspect-bar">
-          <view class="aspect-fill" style="width: {{item.score}}%; background-color: {{zodiac.color}}"></view>
+          <view class="aspect-fill" style="width: {{item.score}}%; background-color: {{zodiac.color}}"/>
         </view>
         <text class="aspect-score">{{item.score}}</text>
       </view>
