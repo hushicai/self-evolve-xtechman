@@ -10,6 +10,66 @@
     bind:monthchange="onMonthChange"
   />
 
+  <!-- 运势卡片 -->
+  <view class="fortune-section" wx:if="{{fortuneData}}">
+    <!-- 今日运势 -->
+    <view class="fortune-card" bindtap="onFortuneTap">
+      <view class="fortune-header">
+        <text class="fortune-title">今日运势</text>
+        <view class="fortune-score">
+          <text class="score-value">{{fortuneData.fortuneScore}}</text>
+        </view>
+      </view>
+      <view class="fortune-bar">
+        <view class="fortune-bar-fill" style="width: {{fortuneData.fortuneScore}}%; background-color: {{fortuneData.zodiac.color}}"/>
+      </view>
+      <text class="fortune-desc">{{fortuneData.fortuneText}}</text>
+    </view>
+
+    <!-- 星座卡片 -->
+    <view class="zodiac-card" style="border-color: {{fortuneData.zodiac.color}}" bindtap="onFortuneTap">
+      <view class="zodiac-header">
+        <text class="zodiac-icon" style="color: {{fortuneData.zodiac.color}}">{{fortuneData.zodiac.icon}}</text>
+        <view class="zodiac-info">
+          <text class="zodiac-name">{{fortuneData.zodiac.name}}</text>
+          <text class="zodiac-element">{{fortuneData.zodiac.element}}象星座</text>
+        </view>
+      </view>
+      <view class="zodiac-aspects">
+        <view class="aspect-item" wx:for="{{fortuneData.zodiac.overall}}" wx:key="name">
+          <text class="aspect-name">{{item.name}}</text>
+          <view class="aspect-bar">
+            <view class="aspect-fill" style="width: {{item.score}}%; background-color: {{fortuneData.zodiac.color}}"/>
+          </view>
+          <text class="aspect-score">{{item.score}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 幸运信息 -->
+    <view class="lucky-section" bindtap="onFortuneTap">
+      <text class="lucky-title">幸运信息</text>
+      <view class="lucky-row">
+        <view class="lucky-item">
+          <text class="lucky-icon">🔢</text>
+          <text class="lucky-value">{{fortuneData.luckyInfo.numbers[0]}}</text>
+        </view>
+        <view class="lucky-item">
+          <text class="lucky-icon">🎨</text>
+          <text class="lucky-value">{{fortuneData.luckyInfo.color}}</text>
+        </view>
+        <view class="lucky-item">
+          <text class="lucky-icon">🧭</text>
+          <text class="lucky-value">{{fortuneData.luckyInfo.direction}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="more-tip" bindtap="onFortuneTap">
+      <text>查看完整运势 →</text>
+    </view>
+  </view>
+
   <!-- 事件列表（底部弹出） -->
   <view class="event-panel {{showEventList ? 'show' : ''}}" 
         bindtouchstart="onPanelTouchStart" 

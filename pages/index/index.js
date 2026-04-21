@@ -1,4 +1,6 @@
 // pages/index/index.js - 首页（日历页面）
+const fortuneUtil = require('../../utils/fortuneUtil')
+
 Page({
   data: {
     currentYear: 2026,
@@ -7,7 +9,8 @@ Page({
     formattedSelectedDate: '',
     events: [],
     showEventList: false,
-    selectedDateEvents: []
+    selectedDateEvents: [],
+    fortuneData: null
   },
 
   onLoad() {
@@ -17,7 +20,8 @@ Page({
       currentYear: today.getFullYear(),
       currentMonth: today.getMonth() + 1,
       selectedDate,
-      formattedSelectedDate: this.formatDateWithWeek(selectedDate)
+      formattedSelectedDate: this.formatDateWithWeek(selectedDate),
+      fortuneData: fortuneUtil.generateFortuneData(selectedDate)
     })
     this.loadEvents()
   },
@@ -47,9 +51,20 @@ Page({
 
   onDateSelect(e) {
     const { date } = e.detail
-    // 跳转到运势详情页
+    this.setData({
+      selectedDate: date,
+      formattedSelectedDate: this.formatDateWithWeek(date),
+      fortuneData: fortuneUtil.generateFortuneData(date),
+      showEventList: true
+    })
+    // 更新当天事件
+    const dayEvents = this.data.events.filter(event => event.date === date)
+    this.setData({ selectedDateEvents: dayEvents })
+  },
+
+  onFortuneTap() {
     wx.navigateTo({
-      url: `/pages/fortune-detail/fortune-detail?date=${date}`
+      url: `/pages/fortune-detail/fortune-detail?date=${this.data.selectedDate}`
     })
   },
 

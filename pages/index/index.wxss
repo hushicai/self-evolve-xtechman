@@ -8,6 +8,183 @@
   flex-direction: column;
 }
 
+/* 运势区域 */
+.fortune-section {
+  padding: 24rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+/* 运势卡片 */
+.fortune-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.fortune-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fortune-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.fortune-score {
+  display: flex;
+  align-items: baseline;
+}
+
+.score-value {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+.fortune-bar {
+  height: 8rpx;
+  background-color: #f0f0f0;
+  border-radius: 4rpx;
+  margin-top: 12rpx;
+  overflow: hidden;
+}
+
+.fortune-bar-fill {
+  height: 100%;
+  border-radius: 4rpx;
+  transition: width 0.3s ease;
+}
+
+.fortune-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 8rpx;
+}
+
+/* 星座卡片 */
+.zodiac-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  border: 2rpx solid;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.zodiac-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.zodiac-icon {
+  font-size: 32rpx;
+}
+
+.zodiac-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.zodiac-name {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.zodiac-element {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.zodiac-aspects {
+  margin-top: 16rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.aspect-item {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.aspect-name {
+  font-size: 24rpx;
+  color: #666;
+  width: 60rpx;
+}
+
+.aspect-bar {
+  flex: 1;
+  height: 6rpx;
+  background-color: #f0f0f0;
+  border-radius: 3rpx;
+  overflow: hidden;
+}
+
+.aspect-fill {
+  height: 100%;
+  border-radius: 3rpx;
+}
+
+.aspect-score {
+  font-size: 22rpx;
+  color: #999;
+  width: 40rpx;
+  text-align: right;
+}
+
+/* 幸运信息 */
+.lucky-section {
+  background-color: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.lucky-title {
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.lucky-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+.lucky-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.lucky-icon {
+  font-size: 28rpx;
+}
+
+.lucky-value {
+  font-size: 24rpx;
+  color: #666;
+}
+
+/* 查看更多提示 */
+.more-tip {
+  text-align: center;
+  padding: 16rpx;
+  color: #5677fc;
+  font-size: 26rpx;
+}
+
 /* 事件面板 */
 .event-panel {
   background-color: #ffffff;

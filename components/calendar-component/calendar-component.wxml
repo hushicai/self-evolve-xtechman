@@ -16,9 +16,6 @@
     <view class="nav-arrow" bindtap="onNextMonth">›</view>
   </view>
 
-  <!-- 今天按钮 -->
-  <view class="today-btn" bindtap="onToday">今天</view>
-
   <!-- 星期标题 -->
   <view class="week-header">
     <text wx:for="{{weekDays}}" wx:key="index" class="week-day">{{item}}</text>
