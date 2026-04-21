@@ -1,38 +1,38 @@
-# Session 2 变更 — 2026-04-20 17:15
+# Session 5 变更 — 2026-04-21 10:25
 
-## 任务
-添加农历显示功能
+## 任务完成情况
 
-## 实现步骤
+### 任务 1：去掉"今天"按钮 ✅
+- 文件：`components/calendar-component/calendar-component.wxml`
+- 变更：删除第 20 行的"今天"按钮
+- 原因：用户明确要求，简化界面
 
-1. **调研** — 选择 `lunar-javascript` 库（周下载量 16.1K，无第三方依赖）
-2. **先写测试** — 创建 test/lunarUtil.test.js（5 tests）
-3. **实现** — 创建 utils/lunarUtil.js 工具函数
-4. **安装依赖** — npm install lunar-javascript
-5. **扩展 dateUtil** — 添加 lunarDay 字段到日历网格
-6. **修改 WXML** — 显示农历日期
-7. **修改 WXSS** — 添加农历样式（调整格子高度，添加农历文字样式）
-8. **验证** — 测试全部通过（44 tests）
-9. **提交** — Session 2: 添加农历显示功能
+### 任务 2：首页展示运势信息 ✅
+- 新文件：`utils/fortuneUtil.js` — 运势数据生成工具（复用 fortune-detail 的逻辑）
+- 修改文件：
+  - `pages/index/index.js` — 添加 fortuneData 数据，修改 onDateSelect 逻辑
+  - `pages/index/index.wxml` — 添加运势展示区域（今日运势 + 星座卡片 + 幸运信息）
+  - `pages/index/index.wxss` — 添加运势卡片样式
+- 原因：改变交互模式，用户无需点击日期跳转即可看到运势
 
-## 文件变更
+### 任务 3：运势卡片点击进入详情页 ✅
+- 方法：`onFortuneTap()` — 点击运势卡片跳转到 fortune-detail 详情页
+- 原因：首页展示简化版，详情页展示完整信息，符合用户习惯
 
-| 文件 | 变更 |
-|-----|------|
-| utils/lunarUtil.js | 新增 |
-| test/lunarUtil.test.js | 新增 |
-| utils/dateUtil.js | 扩展（添加 lunarDay） |
-| components/calendar-component.wxml | 添加农历显示 |
-| components/calendar-component.wxss | 添加农历样式 |
-| package.json | 添加 lunar-javascript 依赖 |
+## 交互流程变更
+
+### 之前
+- 点击日期 → 跳转到详情页
+
+### 现在
+- 首页直接显示运势信息（今日运势 + 星座 + 幸运）
+- 点击日期 → 更新运势数据 + 显示事件列表
+- 点击运势卡片 → 跳转到详情页查看完整信息
+
+## 代码复用
+- fortuneUtil.js 提取了 fortune-detail.js 的核心数据生成函数
+- 避免代码重复，便于维护
 
 ## 测试结果
-
-- 测试数量：39 → 44
-- 全部通过：PASS
-
-## 技术细节
-
-- lunar-javascript 用负数表示闰月（-2表示闰二月）
-- 初一显示月份，节气优先显示，其他日期显示农历日
-- 格子高度从 80rpx 增至 100rpx 以容纳农历文字
+- 44 个测试全部通过
+- 无新增测试（UI 交互变更，数据生成逻辑复用现有函数）
